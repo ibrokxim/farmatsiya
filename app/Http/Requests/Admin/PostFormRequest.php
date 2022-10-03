@@ -24,10 +24,11 @@ class PostFormRequest extends FormRequest
     public function rules()
     {
         return [
+            "name" => ["required"],
             "title" => ["required"],
             "preview" => ["required"],
             "description" => ["required"],
-            "thumbnail" => ["image"],
+            "thumbnail" => ["required"],
         ];
     }
 }

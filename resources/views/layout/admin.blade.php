@@ -1,85 +1,266 @@
-<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="../public/favicon.ico">
     <title>@yield('title')</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mvp/bootstrap.min.css') }}" rel="stylesheet">
+    <style type="text/css">
+        
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+.fa-2x {
+font-size: 2em;
+}
+.fa {
+position: relative;
+display: table-cell;
+width: 60px;
+height: 36px;
+text-align: center;
+vertical-align: middle;
+font-size:20px;
+}
+
+
+.main-menu:hover,nav.main-menu.expanded {
+width:250px;
+overflow:visible;
+}
+
+.flex {
+    background-color: white;
+}
+.main-menu {
+background:#190734;
+border-right:1px solid #e5e5e5;
+position:absolute;
+top:0;
+bottom:0;
+height:100%;
+left:0;
+width:60px;
+overflow:hidden;
+-webkit-transition:width .05s linear;
+transition:width .05s linear;
+-webkit-transform:translateZ(0) scale(1,1);
+z-index:1000;
+}
+
+.main-menu>ul {
+margin:7px 0;
+}
+
+.main-menu li {
+position:relative;
+display:block;
+width:250px;
+}
+
+.form_title{
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    color: #000000;
+}
+.form_label{
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    width: 200px;
+    text-align: end;
+}
+.form_btn{
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 18px 40px;
+    background: #171E83;
+    border-radius: 10px;
+    border: none;
+}
+.form-select.step4{
+  width: 100%;
+  max-width: 426px;
+  font-weight: 400;
+  font-size: 18px;
+  color:rgba(0, 0, 0, .5);
+}
+.form_input{
+    background: #F3F4FF;
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+    padding: 19px 26px;
+    width: 100%;
+    max-width: 426px;
+}
+.main-menu li>a {
+position:relative;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:#999;
+ font-family: arial;
+font-size: 14px;
+text-decoration:none;
+-webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:all .1s linear;
+transition:all .1s linear;
+  
+}
+
+.main-menu .nav-icon {
+position:relative;
+display:table-cell;
+width:60px;
+height:36px;
+text-align:center;
+vertical-align:middle;
+font-size:18px;
+}
+
+.main-menu .nav-text {
+position:relative;
+display:table-cell;
+vertical-align:middle;
+width:190px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu>ul.logout {
+position:absolute;
+left:0;
+bottom:0;
+}
+
+.no-touch .scrollable.hover {
+overflow-y:hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+overflow-y:auto;
+overflow:visible;
+}
+
+a:hover,a:focus {
+text-decoration:none;
+}
+
+nav {
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-o-user-select:none;
+user-select:none;
+}
+
+nav ul,nav li {
+outline:0;
+margin:0;
+padding:0;
+}
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+color:#fff;
+background-color:#5fa2db;
+}
+.area {
+float: left;
+background: #ffffff;
+width: 100%;
+height: 100%;
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+</style>
+<style type="text/css">
+    .field {text-align: right;}
+</style>
 </head>
 <body>
-    <div>
-        <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
-            <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false" class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+    <div class="area display flex"  style="padding:30px 30px 30px 80px">
+    <nav class="main-menu" style="position: fixed;">
+   
+        <ul>
+            <li>
+                <a href="{{ route('admin.message.index') }}">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                        Сообщения
+                    </span>
+                </a>              
+            </li>
+            
+            <li class="has-subnav">
+                <a href="{{ route('admin.users.index') }}">
+                    <i class="fa fa-laptop fa-2x"></i>
+                    <span class="nav-text">
+                        Пользователи
+                    </span>
+                </a>                
+            </li>
+            <li class="has-subnav">
+                <a href="{{ route('admin.admin_users.index') }}">
+                   <i class="fa fa-list fa-2x"></i>
+                    <span class="nav-text">
+                        Редакторы
+                    </span>
+                </a>      
+            </li>
+           
+            <li class="has-subnav">
+                <a href="{{ route('admin.states.index') }}">
+                    @php
+                    $posts = App\Models\StatesSend::where('status', '=', 'Проверяется')
+                                                    ->count();
+                @endphp
+                   <i class="fa fa-folder-open fa-2x"> <span class="badge text-bg-secondary">({{$posts}})</span></i>
+                    <span class="nav-text">
+                        Заявки
+                    </span>
+                </a>           
+            </li>
+            <li>
+                <a href="{{ route('admin.posts.index') }}">
+                    <i class="fa fa-font fa-2x"></i>
+                    <span class="nav-text">
+                       Статьи
+                    </span>
+                </a>
+            </li>                
+        </ul>
+        <ul class="logout">
+            <li>
+               <a href="{{ route('admin.logout') }}">
+                     <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Выйти
+                    </span>
+                </a>
+            </li>  
+        </ul>
+    </nav>
 
-            <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'" class="fixed z-30 inset-y-0 left-0 w-64 transition duration-300 transform bg-gray-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0">
-                <div class="flex items-center justify-center mt-8">
-                    <div class="flex items-center">
-                        <svg class="h-12 w-12" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M364.61 390.213C304.625 450.196 207.37 450.196 147.386 390.213C117.394 360.22 102.398 320.911 102.398 281.6C102.398 242.291 117.394 202.981 147.386 172.989C147.386 230.4 153.6 281.6 230.4 307.2C230.4 256 256 102.4 294.4 76.7999C320 128 334.618 142.997 364.608 172.989C394.601 202.981 409.597 242.291 409.597 281.6C409.597 320.911 394.601 360.22 364.61 390.213Z" fill="#4C51BF" stroke="#4C51BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M201.694 387.105C231.686 417.098 280.312 417.098 310.305 387.105C325.301 372.109 332.8 352.456 332.8 332.8C332.8 313.144 325.301 293.491 310.305 278.495C295.309 263.498 288 256 275.2 230.4C256 243.2 243.201 320 243.201 345.6C201.694 345.6 179.2 332.8 179.2 332.8C179.2 352.456 186.698 372.109 201.694 387.105Z" fill="white"></path>
-                        </svg>
-                    </div>
-                </div>
-
-
-                <nav class="mt-10">
-                    <a href="{{ route('admin.admin_users.index') }}"
-                       class="text-gray-100 flex items-center mt-4 py-2 px-6">
-
-                        <span class="mx-3">Пользователи</span>
-                    </a>
-
-                    <a href="{{ route('admin.posts.index') }}"
-                       class="text-gray-100 flex items-center mt-4 py-2 px-6">
-
-                        <span class="mx-3">Статьи</span>
-                    </a>
-                </nav>
-            </div>
-
-            <div class="flex-1 flex flex-col overflow-hidden">
-                <header class="flex justify-between items-center py-4 px-6 bg-white border-b-4 border-indigo-600">
-                    <div class="flex items-center">
-                        <button @click="sidebarOpen = true" class="text-gray-500 focus:outline-none lg:hidden">
-                            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                      stroke-linejoin="round"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="flex items-center">
-                        <div x-data="{ dropdownOpen: false }" class="relative">
-                            <button @click="dropdownOpen = ! dropdownOpen"
-                                    class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
-                                <img class="h-full w-full object-cover"
-                                     src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=296&amp;q=80"
-                                     alt="Your avatar">
-                            </button>
-
-                            <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"
-                                 style="display: none;"></div>
-
-                            <div x-show="dropdownOpen"
-                                 class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10"
-                                 style="display: none;">
-                                <a href="{{ route("admin.logout") }}"
-                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Выйти</a>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-
-                <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
-                    @yield('content')
-                </main>
-            </div>
-        </div>
-    </div>
-
-    <script src="/js/app.js"></script>
+ 
+                
+ @yield('content')
+               
 </body>
+
 </html>

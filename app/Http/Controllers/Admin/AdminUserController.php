@@ -15,12 +15,13 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = AdminUser::orderBy("created_at", "DESC")->paginate(3);
+        $users = AdminUser::orderBy("created_at", "DESC")->paginate(8);
 
         return view("admin.admin_users.index", [
             "users" => $users,
         ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.

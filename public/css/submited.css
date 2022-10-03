@@ -1,0 +1,96 @@
+.main_title{
+    font-weight: 700;
+    font-size: 36px;
+    color: #000000;
+}
+
+.main_text{
+    font-weight: 400;
+    font-size: 24px;
+    color: #000000;
+}
+
+@media (max-width: 768px){
+    .main_title{
+        font-size: 24px;
+        margin-top: 100px;
+    }
+    .main_text{
+        font-size: 16px;
+    }
+    
+}
+
+
+table thead th{
+    font-weight: 700;
+    font-size: 16px;
+    color: #171E83;
+    margin: 5px;
+}
+table tbody th div{
+    margin: 5px;
+    height: 60px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+table tbody tr th:nth-child(1) div{
+    font-weight: 400;
+    font-size: 16px;
+    color: #171E83;
+    width: 150px;
+    background: #F3F4FF;
+    border-radius: 10px;
+    margin-left: 0;
+}
+
+table tbody tr th:nth-child(2) div{
+    font-weight: 400;
+    font-size: 16px;
+    color: #FF1C1C;
+    width: 565px;
+    background: #F3F4FF;
+    border-radius: 10px;
+}
+table tbody tr th:nth-child(3) div{
+    font-weight: 400;
+    font-size: 16px;
+    color: #171E83;
+    width: 150px;
+    background: #F3F4FF;
+    border-radius: 10px;
+}
+table tbody tr th:nth-child(4) div{
+    font-weight: 700;
+    font-size: 18px;
+    color: #079545; 
+    border: 2px solid #079545;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 0 40px;
+    height: 60px;
+    white-space: nowrap;
+}
+table tbody tr th:nth-child(5) div{
+    font-weight: 700;
+    font-size: 18px;
+    color: #171E83;
+    border: 2px solid #171E83;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 0 40px;
+    height: 60px;
+    white-space: nowrap;
+}
+
+
+.save_btn{
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 20px 40px;
+    background: #171E83;
+    border-radius: 10px;
+    text-decoration: none;
+}

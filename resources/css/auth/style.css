@@ -1,0 +1,150 @@
+.header_title{
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #171E83;
+    line-height: 120%;
+}
+
+.main_title{
+    font-weight: 700;
+    font-size: 36px;
+    color: #000000;
+}
+
+.main_text{
+    font-weight: 400;
+    font-size: 24px;
+    color: #000000;
+}
+
+
+    /* FORM */
+
+
+
+.form_title{
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    color: #000000;
+}
+
+.form_input{
+    background: #F3F4FF;
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+    padding: 19px 26px;
+    width: 100%;
+    max-width: 426px;
+}
+
+.form_input::placeholder{
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    opacity: 0.5;
+}
+
+.form_btn{
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 18px 40px;
+    background: #171E83;
+    border-radius: 10px;
+    border: none;
+}
+
+
+
+.form_label{
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    width: 200px;
+    text-align: end;
+}
+
+
+
+
+.line{
+    max-width: 426px;
+    width: 100%;
+    height: 1px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(23,30,131,1) 50%, rgba(255,255,255,1) 100%);
+}
+
+.auth_link{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: #171E83;
+    text-decoration: none;
+}
+
+.warn{
+    background: #FFFFCC;
+    border-radius: 10px;
+    padding: 19px 57px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+.form-check-input {
+    width: 24px;
+    height:24px;
+    margin-top: 0.25em;
+    vertical-align: top;
+    background-color: transparent;
+    border: 2px solid rgba(23, 30, 131, 1);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+}
+.form-check-input:checked {
+    background-color: rgba(23, 30, 131, 1);
+    border-color: rgba(23, 30, 131, 1);
+}
+.sign-up_block{
+    border: 2px solid rgba(23, 30, 131, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 750px;
+    width: 100%;
+}
+.sign-up_block_title{
+    font-weight: 700;
+    font-size: 16px;
+    color: #171E83;
+}
+.sign-up_block_text{
+    font-weight: 400;
+    font-size: 13px;
+    color: #222222;
+    line-height: 15px;
+}
+.sign-up_line{
+    border-top: 2px solid rgba(23, 30, 131, 0.5);
+}
+@media (max-width: 768px){
+    .main_title{
+        font-size: 24px;
+        margin-top: 100px;
+    }
+    .main_text{
+        font-size: 16px;
+    }
+    .header_title{
+        font-size:18px;
+        text-align: center;
+    }
+    .captcha{
+        width: 100px;
+    }
+}

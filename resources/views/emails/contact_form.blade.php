@@ -1,2 +1,4 @@
-<p>E-mail: {{ $email }}</p>
-<p>Text: {{ $text }}</p>
+<p>Имя: {{ $name }}</p>
+<p>Email: {{ $email }}</p>
+<p>Тема: {{ $subject }}</p>
+<p>Сообщение: {{ $message }}</p>

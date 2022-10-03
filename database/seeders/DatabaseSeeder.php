@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\AdminUser;
-use App\Models\Category;
 use App\Models\Post;
-use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,11 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        AdminUser::factory(1)->create([
-            "name" => "Admin",
-            "email" => "laravel@laravel.com",
-            "password" => "12345",
-        ]);
+        AdminUser::factory(1)->create(
+            [
+            "name" => "agzam",
+            "role" => "admin",
+            "email" => "agzam@saidov.com",
+            "password" => "12345678",    ]
+    );
 
         User::factory(10)->create();
 

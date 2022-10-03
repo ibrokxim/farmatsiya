@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+
+use App\Jobs\ForgotUserEmailJob;
+use App\Mail\ForgotPassword;
+use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Mail\Mailable;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -33,4 +39,5 @@ class AuthController extends Controller
 
         return redirect(route("home"));
     }
+
 }

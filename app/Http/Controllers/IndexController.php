@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactFormRequest;
 use App\Mail\ContactForm;
+use App\Mail\ContactMail;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use App\Utilities\Notification\MessengerNotificatorInterface;
 use Illuminate\Contracts\Encryption\Encrypter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-
+use App\Notifications\UsersNotification;
 class IndexController extends Controller
 {
     /**
@@ -23,9 +25,13 @@ class IndexController extends Controller
         $posts = Post::query()
             ->orderBy("created_at", "DESC")->limit(3)->get();
 
-        return view('welcome', [
+        return view('first', [
             "posts" => $posts,
         ]);
+    }
+    
+    public function welcome(){
+        return view('/welcome');
     }
 
     public function showContactForm()
@@ -34,9 +40,24 @@ class IndexController extends Controller
     }
 
     public function contactForm(ContactFormRequest $request)
-    {
-        Mail::to("info@cutcode.ru")->send(new ContactForm($request->validated()));
+     {
+        Mail::to("journal@ftti.uz")->send(new ContactMail($request->validated()));
+        
+        return redirect(route("welcome"));
+     }
+     
+    public function setLocale($locale){
+        session(['user_locale' => $locale]);
+        return redirect()->back();
+        } 
 
-        return redirect(route("contacts"));
+    public function getEmail(){
+        return view('/emails/email',[
+            'user' => Auth::user(),
+        ]);
+    }
+    public function store(){
+        $user = User::first();
+        $user->notify(new UsersNotification($user));
     }
 }

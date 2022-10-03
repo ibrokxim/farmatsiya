@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'farmatsiya'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,14 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
+
+
+    'available_locales' => [
+        'English' => 'en',
+        'Russian' => 'ru',
+        'Uzbek' => 'uz',
+      ],
 
     /*
     |--------------------------------------------------------------------------
@@ -139,6 +146,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -161,7 +169,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+     
+        Illuminate\Foundation\Support\Providers\EventServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -174,7 +183,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+      
     ],
 
     /*

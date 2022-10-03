@@ -1,4 +1,20 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/mvp/all.min.js": "/js/mvp/all.min.js",
+    "/js/mvp/bootstrap.bundle.min.js": "/js/mvp/bootstrap.bundle.min.js",
+    "/js/mvp/bootstrap.bundle.min.js.js": "/js/mvp/bootstrap.bundle.min.js.js",
+    "/js/mvp/jquery-2.2.4.min.js": "/js/mvp/jquery-2.2.4.min.js",
+    "/js/mvp/script.js": "/js/mvp/script.js",
+    "/js/mvp/wow.min.js": "/js/mvp/wow.min.js",
+    "/js/slick/slick.js": "/js/slick/slick.js",
+    "/js/slick/slick.min.js": "/js/slick/slick.min.js",
+    "/css/mvp/main.css": "/css/mvp/main.css",
+    "/css/mvp/slick.css": "/css/mvp/slick.css",
+    "/css/mvp/style.css": "/css/mvp/style.css",
+    "/css/auth/style.css": "/css/auth/style.css",
+    "/css/app.css": "/css/app.css",
+    "/css/slick/slick.css": "/css/slick/slick.css",
+    "/css/new/style.css": "/css/new/style.css",
+    "/css/mvp/bootstrap.min.css": "/css/mvp/bootstrap.min.css",
+    "/css/mvp/animate.css": "/css/mvp/animate.css"
 }

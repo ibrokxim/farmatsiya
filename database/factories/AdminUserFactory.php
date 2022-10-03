@@ -23,6 +23,7 @@ class AdminUserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'role' => "admin",
             'email' => $this->faker->unique()->safeEmail(),
             'password' => '12345', // password
         ];

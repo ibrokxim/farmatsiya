@@ -1,0 +1,60 @@
+.main_title{
+    font-weight: 700;
+    font-size: 36px;
+    color: #000000;
+}
+
+.main_text{
+    font-weight: 400;
+    font-size: 24px;
+    color: #000000;
+}
+
+
+@media (max-width: 768px){
+    .main_title{
+        font-size: 24px;
+        margin-top: 100px;
+    }
+    .main_text{
+        font-size: 16px;
+    }
+    
+}
+
+
+.welcome_text{
+    font-weight: 700;
+    font-size: 24px;
+    color: #171E83;
+}
+
+.profile_text{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #222222;
+}
+
+.profile_text_link{
+    font-weight: bold;
+    text-decoration: none;
+    color: #171E83;
+}
+
+.profile_btn_name{
+    font-weight: 500;
+    font-size: 16px;
+    color: #171E83;
+    text-decoration: none;
+}
+
+.profile_btn{
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 20px 40px;
+    background: #171E83;
+    border-radius: 10px;
+    text-decoration: none;
+}

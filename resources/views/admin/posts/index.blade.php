@@ -3,53 +3,72 @@
 @section('title', 'Статьи')
 
 @section('content')
-    <div class="container mx-auto px-6 py-8">
-        <h3 class="text-gray-700 text-3xl font-medium">Статьи</h3>
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+    <strong>{{ $message }}</strong>
+</div>
+@endif
+<h3 class="text-gray-700 text-3xl font-medium">Опубликованные статьи</h3>
+<br>
+  <div>
+    <a class="btn btn-info text-white" href="{{ route('admin.posts.create') }}">Добавить</a>
+  </div>
+  <input class="form-control mb-6" type="text" placeholder="Поиск" id="search-text" onkeyup="tableSearch()" style="width: 300px; float:right">
+  <table class="table" id="info-table">
+    <thead>
+      <tr>
+        <th scope="col">Страницы</th>
+        <th scope="col">Автор</th>
+        <th scope="col">Название статьи</th>
+        <th scope="col">Аннотация</th>
+     
+      </tr>
+    </thead>
+    @foreach($posts as $post)
+    <tbody>
+      <tr>
+        <th scope="row">{{$post->preview}}</th>
+        <td>{{$post -> title}}</td>
+        <td>{{$post -> name}}</td>
+        <td>{!! \Illuminate\Support\Str::words($post -> description,10) !!}</td>
+        <td class="d-flex gap-3 align-items-start"><a class="btn btn-info text-white" href="{{ route('admin.posts.edit', $post->id) }}">Редактировать</a>
+        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger h-auto" onclick="">Удалить</button>
+        </form>
+        </td>
+    @endforeach
+      </tr>
+    </tbody>     
+    </table>
 
-        <div class="mt-8">
-            <a href="{{ route("admin.posts.create") }}" class="text-indigo-600 hover:text-indigo-900">Добавить</a>
-        </div>
+    
+    {{$posts->links("pagination::bootstrap-4")}}
+<br>
 
-        <div class="flex flex-col mt-8">
-            <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                <div
-                        class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
-                    <table class="min-w-full">
-                        <thead>
-                        <tr>
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Заголовок</th>
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
-                        </tr>
-                        </thead>
 
-                        <tbody class="bg-white">
-                        @foreach($posts as $post)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    <div class="text-sm leading-5 text-gray-900">{{ $post->title }}</div>
-                                </td>
+  <script>
+ function tableSearch() {
+    var phrase = document.getElementById('search-text');
+    var table = document.getElementById('info-table');
+    var regPhrase = new RegExp(phrase.value, 'i');
+    var flag = false;
+    for (var i = 1; i < table.rows.length; i++) {
+        flag = false;
+        for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
+            flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
+            if (flag) break;
+        }
+        if (flag) {
+            table.rows[i].style.display = "";
+        } else {
+            table.rows[i].style.display = "none";
+        }
 
-                                <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                    <a href="{{ route("admin.posts.edit", $post->id) }}" class="text-indigo-600 hover:text-indigo-900">Редактировать</a>
+    }
+}
+</script>
 
-                                    <form action="{{ route("admin.posts.destroy", $post->id) }}" method="POST">
-                                        @csrf
-
-                                        @method('DELETE')
-
-                                        <button type="submit" class="text-red-600 hover:text-red-900">Удалить</button>
-                                    </form>
-
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-
-                    {{ $posts->links() }}
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

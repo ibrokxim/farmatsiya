@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DTO\PostForm;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostFormRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use WithPagination;
+
 use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
@@ -17,14 +19,18 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    protected $paginationTheme = 'bootstrap';
+
     public function index()
     {
-        $posts = Post::orderBy("created_at", "DESC")->paginate(3);
+        $posts = Post::orderBy("preview", "asc")->paginate(5);
 
         return view("admin.posts.index", [
             "posts" => $posts,
         ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -46,7 +52,7 @@ class PostController extends Controller
     {
         Post::create($request->validated());
 
-        return redirect(route("admin.posts.index"));
+        return redirect(route("admin.posts.index"))->with('succes', 'Статья была успешно создана!');;
     }
 
     /**
@@ -73,7 +79,7 @@ class PostController extends Controller
     {
         $post->update($request->validated());
 
-        return redirect(route("admin.posts.index"));
+        return redirect(route("admin.posts.index"))->with('succes', 'Статья была успешно создана!');;
     }
 
     /**

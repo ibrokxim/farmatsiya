@@ -30,6 +30,7 @@ class AdminUserFormRequest extends FormRequest
     {
         return [
             "name" => ["required"],
+            "role" => ["required"],
             "email" => ["required"],
 
             "password" => [

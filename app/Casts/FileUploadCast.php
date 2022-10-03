@@ -36,7 +36,7 @@ class FileUploadCast implements CastsAttributes
         $directory = Str::of(get_class($model))->afterLast("\\")
             ->lower()
             ->plural()
-            ->prepend('public/');
+            ->prepend('public/posts');
 
         if(!$value instanceof \Illuminate\Http\UploadedFile) {
             if(is_string($value)) {
@@ -56,6 +56,6 @@ class FileUploadCast implements CastsAttributes
             return null;
         }
 
-        return $value;
+        return substr($value, 7);
     }
 }

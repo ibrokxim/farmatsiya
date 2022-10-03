@@ -1,27 +1,49 @@
-@extends('layout.app')
+@extends('layout.app_login')
 
 @section('title', 'Восстановление пароля')
 
 @section('content')
-    <div class="h-screen bg-white flex flex-col space-y-10 justify-center items-center">
-        <div class="bg-white w-96 shadow-xl rounded p-5">
-            <h1 class="text-3xl font-medium">Восстановление пароля</h1>
-
-            <form class="space-y-5 mt-5" method="POST" action="{{ route("forgot_process") }}">
-                @csrf
-
-                <input name="email" type="text" class="w-full h-12 border rounded px-3 @error('email') border-red-500 @enderror" placeholder="Email" />
-
-                @error('email')
-                    <p class="text-red-500">{{ $message }}</p>
-                @enderror
-
-                <div>
-                    <a href="{{ route("login") }}" class="font-medium text-blue-900 hover:bg-blue-300 rounded-md p-2">Вспомнил пароль</a>
-                </div>
-
-                <button type="submit" class="text-center w-full bg-blue-900 rounded-md text-white py-3 font-medium">Восстановить</button>
-            </form>
+<form method="POST" action="{{ route('login_process') }}" class="space-y-5 mt-5">
+    @csrf
+    <body class="h-100 d-flex flex-column">
+    <header>
+        <div class="bg-white d-lg-block">
+        <div class="container-fluid py-4">
+            <div class="row">
+            <a class="col-12 d-flex align-items-center gap-3 justify-content-center text-decoration-none" href="../../">
+                <div class="header_title">{{__('rauth.jurnal')}}</div>
+            </a>
+            </div>
+        </div>
+        </div>
+    </header>
+    <div class="col-12 d-flex justify-content-center flex-column align-items-center mb-2">
+        <img src="../public/img/logo.svg" alt="" height="100" weight="75">
+    </div> 
+    
+           
         </div>
     </div>
+    <main class="flex-grow-1 pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center flex-column align-items-center">
+      <form method="POST" action="{{ route('forgot_process') }}" class="space-y-5 mt-5 border rounded px-3 @error('email') border-red-500 @enderror">
+        @csrf
+          <input class="form_input" name="email" type="text" placeholder="Email">
+            @error('email')
+                <p class="text-red-500">{{ $message }}</p>
+            @enderror
+            <br>
+            <div>
+                <a href="{{ route('login') }}" class="font-medium text-blue-900 hover:bg-blue-300 rounded-md p-2">Вспомнил пароль</a>
+            </div>
+          <button class="form_btn mt-4" type="submit">@lang('rauth.recover')</button>
+        </form>
+        
+      
+     
+      </div>
+    </div>
+  </div>
 @endsection

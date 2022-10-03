@@ -1,0 +1,27 @@
+.main_title{
+    font-weight: 700;
+    font-size: 24px;
+    color: #000000;
+}
+
+.main_text{
+    font-weight: 400;
+    font-size: 24px;
+    color: #000000;
+}
+.main_el{
+    font-weight: 700;
+    font-size: 24px;
+    color: #000000;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px){
+    .main_title{
+        font-size: 20px;
+    }
+    
+    .main_text,.main_el{
+        font-size: 16px;
+    }
+}
